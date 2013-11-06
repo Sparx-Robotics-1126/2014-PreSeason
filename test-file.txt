@@ -4,3 +4,5 @@ Making more awesome changes!
 
 
 First pull request!
+
+Someone new making changes

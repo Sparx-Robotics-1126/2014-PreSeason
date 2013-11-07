@@ -5,3 +5,4 @@
 *.war
 *.ear
 /DemoingProject/nbproject/private/
+/DemoingProject/build/

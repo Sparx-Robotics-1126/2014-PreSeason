@@ -53,7 +53,7 @@ public class DemoingProject {
         System.out.println("This sort took "+sort1Time+" ns.\n");
         
         System.out.println("Sort 2:");
-        printArray(unsorted12);
+        printArray(unsorted2);
         printArray(sort2);
         System.out.println("This sort took "+sort2Time+" ns.\n");
         

@@ -24,8 +24,8 @@ public class DemoingProject {
         int[] unsorted2 = createRandomArray(SIZE);
         int[] unsorted3 = createRandomArray(SIZE);
         int[] sort1 = sort1(unsorted1);
-        int[] sort2 = sort1(unsorted2);
-        int[] sort3 = sort1(unsorted3);
+        int[] sort2 = sort2(unsorted2);
+        int[] sort3 = sort3(unsorted3);
         
         printArray(unsorted1);
         printArray(sort1);
@@ -60,6 +60,31 @@ public class DemoingProject {
     }
     
     public static int[] sort3(int[] unsortedList){
-        return new int[0];
+        int [] sorted3 = new int [unsortedList.length]; 
+        int i, j, temp;
+        for (i=0;i<=unsortedList.length-1;i++)   // dup array
+        {
+            sorted3[i] = unsortedList [i];
+                    } // dup array
+        for (i=0;i<=unsortedList.length-2;i++)
+        {
+            for (j = i+1;j<=unsortedList.length-1;j++)
+            {
+               if (sorted3[j] <= sorted3[i]) 
+                        {
+                        temp = sorted3[i];
+                        sorted3[i] = sorted3[j];
+                        sorted3[j] = temp;
+                        }    
+//               System.out.println(i);
+//            System.out.println(j);
+//            printArray (sorted3);
+            } // for j 
+     
+        
+        } // for i    
+        
+        return sorted3;
+        
     }
 }

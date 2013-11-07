@@ -24,15 +24,15 @@ public class DemoingProject {
         int[] unsorted2 = createRandomArray(SIZE);
         int[] unsorted3 = createRandomArray(SIZE);
         int[] sort1 = sort1(unsorted1);
-        int[] sort2 = sort1(unsorted2);
-        int[] sort3 = sort1(unsorted3);
+        int[] sort2 = sort2(unsorted2);
+        int[] sort3 = sort3(unsorted3);
         
-        printArray(unsorted1);
-        printArray(sort1);
-        printArray(unsorted2);
+//        printArray(unsorted1);
+//        printArray(sort1);
+//        printArray(unsorted2);
         printArray(sort2);
-        printArray(unsorted3);
-        printArray(sort3);
+//        printArray(unsorted3);
+//        printArray(sort3);
     }
     
     private static void printArray(int[] array){
@@ -56,7 +56,21 @@ public class DemoingProject {
     }
     
     public static int[] sort2(int[] unsortedList){
-        return new int[0];
+        int [] sortedArray = unsortedList;
+        int smallestNumber = 0;
+        int smallestNumberPosition = 0;
+        for (int i = 0; i < unsortedList.length; i++){
+            smallestNumber = Integer.MAX_VALUE;
+            for (int x = 0; x < unsortedList.length; x++){
+                if(unsortedList[x] < smallestNumber){
+                    smallestNumber = unsortedList[x];
+                    smallestNumberPosition = x;
+            }
+                    sortedArray[i] = unsortedList[smallestNumberPosition];
+                    unsortedList[smallestNumberPosition] = Integer.MAX_VALUE;
+            } 
+        }
+        return sortedArray;
     }
     
     public static int[] sort3(int[] unsortedList){

@@ -62,4 +62,9 @@ public class DemoingProject {
     public static int[] sort3(int[] unsortedList){
         return new int[0];
     }
+    public static int[] sort4(int[] unsortedList){
+        int[] retVal = Arrays.copyOf(unsortedList, unsortedList.length);
+        Arrays.sort(retVal);
+        return retVal;
+    }
 }

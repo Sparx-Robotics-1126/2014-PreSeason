@@ -1,10 +1,6 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package demoingproject;
+
+import java.util.Arrays;
 
 /**
  *
@@ -23,16 +19,53 @@ public class DemoingProject {
         int[] unsorted1 = createRandomArray(SIZE);
         int[] unsorted2 = createRandomArray(SIZE);
         int[] unsorted3 = createRandomArray(SIZE);
-        int[] sort1 = sort1(unsorted1);
-        int[] sort2 = sort1(unsorted2);
-        int[] sort3 = sort1(unsorted3);
+        int[] unsorted4 = createRandomArray(SIZE);
+        long sort1Time, sort2Time, sort3Time, sort4Time;
         
+        long startTime = System.nanoTime();
+        int[] sort1 = sort1(unsorted1);
+        long endTime = System.nanoTime();
+        sort1Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort2 = sort2(unsorted2);
+        endTime = System.nanoTime();
+        sort2Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort3 = sort3(unsorted3);
+        endTime = System.nanoTime();
+        sort3Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort4 = sort4(unsorted4);
+        endTime = System.nanoTime();
+        sort4Time = endTime - startTime;
+        
+        System.out.println("Sort 1:");
         printArray(unsorted1);
         printArray(sort1);
-        printArray(unsorted2);
+        System.out.println("This sort took "+sort1Time+" ns.\n");
+        
+        System.out.println("Sort 1:");
+        printArray(unsorted1);
+        printArray(sort1);
+        System.out.println("This sort took "+sort1Time+" ns.\n");
+        
+        System.out.println("Sort 2:");
+        printArray(unsorted12);
         printArray(sort2);
+        System.out.println("This sort took "+sort2Time+" ns.\n");
+        
+        System.out.println("Sort 3:");
         printArray(unsorted3);
         printArray(sort3);
+        System.out.println("This sort took "+sort3Time+" ns.\n");
+        
+        System.out.println("Sort 4:");
+        printArray(unsorted4);
+        printArray(sort4);
+        System.out.println("This sort took "+sort4Time+" ns.\n");
     }
     
     private static void printArray(int[] array){

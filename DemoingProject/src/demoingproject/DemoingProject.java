@@ -52,7 +52,10 @@ public class DemoingProject {
         }
         return retVal;
     }
-    
+    /**
+     * @pre: none
+     * @return: a sorted list from smallest to largest
+     */
     public static int[] sort1(int[] unsortedList){
         int[] sorted = new int[unsortedList.length];
         int[] temp = Arrays.copyOf(unsortedList, unsortedList.length);

@@ -53,6 +53,9 @@ public class DemoingProject {
         return retVal;
     }
     /**
+     * Sorts the array from smallest to largest using a temporary array that has
+     * the smallest value placed in a return array and then sets the value in 
+     * the temp array to Integer.MAX_VALUE.
      * @pre: none
      * @return: a sorted list from smallest to largest
      */

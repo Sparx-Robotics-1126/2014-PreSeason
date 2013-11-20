@@ -6,6 +6,8 @@
 
 package demoingproject;
 
+import java.util.Arrays;
+
 /**
  *
  * @author jbass
@@ -24,8 +26,8 @@ public class DemoingProject {
         int[] unsorted2 = createRandomArray(SIZE);
         int[] unsorted3 = createRandomArray(SIZE);
         int[] sort1 = sort1(unsorted1);
-        int[] sort2 = sort1(unsorted2);
-        int[] sort3 = sort1(unsorted3);
+        int[] sort2 = sort2(unsorted2);
+        int[] sort3 = sort3(unsorted3);
         
         printArray(unsorted1);
         printArray(sort1);
@@ -50,9 +52,30 @@ public class DemoingProject {
         }
         return retVal;
     }
-    
+    /**
+     * Sorts the array from smallest to largest using a temporary array that has
+     * the smallest value placed in a return array and then sets the value in 
+     * the temp array to Integer.MAX_VALUE.
+     * @pre: none
+     * @return: a sorted list from smallest to largest
+     */
     public static int[] sort1(int[] unsortedList){
-        return new int[0];
+        int[] sorted = new int[unsortedList.length];
+        int[] temp = Arrays.copyOf(unsortedList, unsortedList.length);
+        int min = Integer.MAX_VALUE;
+        int minIndex = 0;
+        for(int i = 0; i < unsortedList.length; i++){
+           for(int j = 0; j < unsortedList.length; j++){
+               if(temp[j] < min){
+                   min = temp[j];
+                   minIndex = j;
+               }
+           }
+           min = Integer.MAX_VALUE;
+           sorted[i] = temp[minIndex];
+           temp[minIndex] = Integer.MAX_VALUE;
+        }
+        return sorted;
     }
     
     public static int[] sort2(int[] unsortedList){

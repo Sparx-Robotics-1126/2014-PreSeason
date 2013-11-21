@@ -1,42 +1,95 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package demoingproject;
 
 import java.util.Arrays;
 
 /**
- *
+ * This project is for testing different sort methods.
  * @author jbass
  */
 public class DemoingProject {
+    
+    /**
+     * The largest random we are going to generate.
+     */
     private static int MAX_RANDOM = 100;
+    
+    /**
+     * The smallest radom we are going to generate.
+     */
     private static int MIN_RANDOM = 0;
+    
+    /**
+     * The number range of numbers.
+     */
     private static int MAX_MIN_DIFF = MAX_RANDOM - MIN_RANDOM;
+    
+    /**
+     * The number of elements we are going to sort.
+     */
     private static int SIZE = 10000;
 
     /**
+     * This is the entry to the sorting test framework.  This will test the
+     * different sorting methods.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
         int[] unsorted1 = createRandomArray(SIZE);
         int[] unsorted2 = createRandomArray(SIZE);
         int[] unsorted3 = createRandomArray(SIZE);
-        int[] sort1 = sort1(unsorted1);
-        int[] sort2 = sort2(unsorted2);
-        int[] sort3 = sort3(unsorted3);
+        int[] unsorted4 = createRandomArray(SIZE);
+        long sort1Time, sort2Time, sort3Time, sort4Time;
         
-//        printArray(unsorted1);
-//        printArray(sort1);
-//        printArray(unsorted2);
+        long startTime = System.nanoTime();
+        int[] sort1 = sort1(unsorted1);
+        long endTime = System.nanoTime();
+        sort1Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort2 = sort2(unsorted2);
+        endTime = System.nanoTime();
+        sort2Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort3 = sort3(unsorted3);
+        endTime = System.nanoTime();
+        sort3Time = endTime - startTime;
+        
+        startTime = System.nanoTime();
+        int[] sort4 = sort4(unsorted4);
+        endTime = System.nanoTime();
+        sort4Time = endTime - startTime;
+        
+        System.out.println("Sort 1:");
+        printArray(unsorted1);
+        printArray(sort1);
+        System.out.println("This sort took "+sort1Time+" ns.\n");
+        
+        System.out.println("Sort 1:");
+        printArray(unsorted1);
+        printArray(sort1);
+        System.out.println("This sort took "+sort1Time+" ns.\n");
+        
+        System.out.println("Sort 2:");
+        printArray(unsorted2);
         printArray(sort2);
-//        printArray(unsorted3);
-//        printArray(sort3);
+        System.out.println("This sort took "+sort2Time+" ns.\n");
+        
+        System.out.println("Sort 3:");
+        printArray(unsorted3);
+        printArray(sort3);
+        System.out.println("This sort took "+sort3Time+" ns.\n");
+        
+        System.out.println("Sort 4:");
+        printArray(unsorted4);
+        printArray(sort4);
+        System.out.println("This sort took "+sort4Time+" ns.\n");
     }
     
+    /**
+     * Prints the array on a single line.
+     * @param array The array to print.
+     */
     private static void printArray(int[] array){
         System.out.print("{");
         for(int i=0;i<array.length;i++){
@@ -45,6 +98,11 @@ public class DemoingProject {
         System.out.println("}");
     }
     
+    /**
+     * Creates a random array with the given size.
+     * @param size The size of the array to create.
+     * @return The created array.
+     */
     private static int[] createRandomArray(int size){
         int[] retVal = new int[size];
         for(int i=0; i<size;i++){
@@ -108,5 +166,10 @@ public class DemoingProject {
     
     public static int[] sort3(int[] unsortedList){
         return new int[0];
+    }
+    public static int[] sort4(int[] unsortedList){
+        int[] retVal = Arrays.copyOf(unsortedList, unsortedList.length);
+        Arrays.sort(retVal);
+        return retVal;
     }
 }

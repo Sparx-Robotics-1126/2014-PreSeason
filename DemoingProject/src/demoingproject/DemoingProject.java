@@ -56,7 +56,7 @@ public class DemoingProject {
      * Sorts the array from smallest to largest using a temporary array that has
      * the smallest value placed in a return array and then sets the value in 
      * the temp array to Integer.MAX_VALUE.
-     * @pre: none
+     * @param: unsortedList the 2D unsorted list to sort...
      * @return: a sorted list from smallest to largest
      */
     public static int[] sort1(int[] unsortedList){

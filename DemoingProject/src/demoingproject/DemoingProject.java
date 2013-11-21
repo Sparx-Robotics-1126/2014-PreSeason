@@ -54,20 +54,30 @@ public class DemoingProject {
     public static int[] sort1(int[] unsortedList){
         return new int[0];
     }
+ 
     
+     /**
+     * Sorts a 2D array from smallest to largest. and then return the sorted array.
+     * The method first finds the smallest number and then adds that to the last array place value.
+     * The lower value in the sorted array is then set to Integer.Max_Value and then 
+     * the loop is continued until the end of the array length
+     * @param a 2D array
+     * @return: a sorted list from smallest to largest
+     */
     public static int[] sort2(int[] unsortedList){
-        int [] sortedArray = unsortedList;
+        int [] localUnsortedArray = unsortedList;
+        int [] sortedArray = localUnsortedArray;
         int smallestNumber = 0;
         int smallestNumberPosition = 0;
-        for (int i = 0; i < unsortedList.length; i++){
+        for (int i = 0; i < localUnsortedArray.length; i++){
             smallestNumber = Integer.MAX_VALUE;
-            for (int x = 0; x < unsortedList.length; x++){
-                if(unsortedList[x] < smallestNumber){
+            for (int x = 0; x < localUnsortedArray.length; x++){
+                if(localUnsortedArray[x] < smallestNumber){
                     smallestNumber = unsortedList[x];
                     smallestNumberPosition = x;
             }
-                    sortedArray[i] = unsortedList[smallestNumberPosition];
-                    unsortedList[smallestNumberPosition] = Integer.MAX_VALUE;
+                    sortedArray[i] = localUnsortedArray[smallestNumberPosition];
+                    localUnsortedArray[smallestNumberPosition] = Integer.MAX_VALUE;
             } 
         }
         return sortedArray;

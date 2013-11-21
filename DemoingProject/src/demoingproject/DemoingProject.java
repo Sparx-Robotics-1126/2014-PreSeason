@@ -83,13 +83,58 @@ public class DemoingProject {
         }
         return retVal;
     }
-    
+    /**
+     * Sorts the array from smallest to largest using a temporary array that has
+     * the smallest value placed in a return array and then sets the value in 
+     * the temp array to Integer.MAX_VALUE.
+     * @pre: none
+     * @return: a sorted list from smallest to largest
+     */
     public static int[] sort1(int[] unsortedList){
-        return new int[0];
+        int[] sorted = new int[unsortedList.length];
+        int[] temp = Arrays.copyOf(unsortedList, unsortedList.length);
+        int min = Integer.MAX_VALUE;
+        int minIndex = 0;
+        for(int i = 0; i < unsortedList.length; i++){
+           for(int j = 0; j < unsortedList.length; j++){
+               if(temp[j] < min){
+                   min = temp[j];
+                   minIndex = j;
+               }
+           }
+           min = Integer.MAX_VALUE;
+           sorted[i] = temp[minIndex];
+           temp[minIndex] = Integer.MAX_VALUE;
+        }
+        return sorted;
     }
+ 
     
+     /**
+     * Sorts a 2D array from smallest to largest. and then return the sorted array.
+     * The method first finds the smallest number and then adds that to the last array place value.
+     * The lower value in the unsorted array is then set to Integer.Max_Value and then 
+     * the loop is continued until the end of the array length
+     * @param unsortedList a 2D array
+     * @return: a sorted list from smallest to largest
+     */
     public static int[] sort2(int[] unsortedList){
-        return new int[0];
+        int [] localUnsortedArray = unsortedList;
+        int [] sortedArray = localUnsortedArray;
+        int smallestNumber = 0;
+        int smallestNumberPosition = 0;
+        for (int i = 0; i < localUnsortedArray.length; i++){
+            smallestNumber = Integer.MAX_VALUE;
+            for (int x = 0; x < localUnsortedArray.length; x++){
+                if(localUnsortedArray[x] < smallestNumber){
+                    smallestNumber = unsortedList[x];
+                    smallestNumberPosition = x;
+            }
+                    sortedArray[i] = localUnsortedArray[smallestNumberPosition];
+                    localUnsortedArray[smallestNumberPosition] = Integer.MAX_VALUE;
+            } 
+        }
+        return sortedArray;
     }
     
     public static int[] sort3(int[] unsortedList){

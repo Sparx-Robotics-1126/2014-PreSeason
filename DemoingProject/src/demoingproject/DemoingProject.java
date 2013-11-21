@@ -3,16 +3,34 @@ package demoingproject;
 import java.util.Arrays;
 
 /**
- *
+ * This project is for testing different sort methods.
  * @author jbass
  */
 public class DemoingProject {
+    
+    /**
+     * The largest random we are going to generate.
+     */
     private static int MAX_RANDOM = 100;
+    
+    /**
+     * The smallest radom we are going to generate.
+     */
     private static int MIN_RANDOM = 0;
+    
+    /**
+     * The number range of numbers.
+     */
     private static int MAX_MIN_DIFF = MAX_RANDOM - MIN_RANDOM;
+    
+    /**
+     * The number of elements we are going to sort.
+     */
     private static int SIZE = 10000;
 
     /**
+     * This is the entry to the sorting test framework.  This will test the
+     * different sorting methods.
      * @param args the command line arguments
      */
     public static void main(String[] args) {
@@ -68,6 +86,10 @@ public class DemoingProject {
         System.out.println("This sort took "+sort4Time+" ns.\n");
     }
     
+    /**
+     * Prints the array on a single line.
+     * @param array The array to print.
+     */
     private static void printArray(int[] array){
         System.out.print("{");
         for(int i=0;i<array.length;i++){
@@ -76,6 +98,11 @@ public class DemoingProject {
         System.out.println("}");
     }
     
+    /**
+     * Creates a random array with the given size.
+     * @param size The size of the array to create.
+     * @return The created array.
+     */
     private static int[] createRandomArray(int size){
         int[] retVal = new int[size];
         for(int i=0; i<size;i++){

@@ -59,9 +59,9 @@ public class DemoingProject {
      /**
      * Sorts a 2D array from smallest to largest. and then return the sorted array.
      * The method first finds the smallest number and then adds that to the last array place value.
-     * The lower value in the sorted array is then set to Integer.Max_Value and then 
+     * The lower value in the unsorted array is then set to Integer.Max_Value and then 
      * the loop is continued until the end of the array length
-     * @param a 2D array
+     * @param unsortedList a 2D array
      * @return: a sorted list from smallest to largest
      */
     public static int[] sort2(int[] unsortedList){
